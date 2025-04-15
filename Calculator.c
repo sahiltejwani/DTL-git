@@ -13,6 +13,7 @@ int main() {
     if (choice == 1) {
         double num1, num2;
         char operator;
+        printf("Hello world");
         printf("Decimal Calculator\n");
         printf("Enter an expression (e.g., 5 + 3): ");
         scanf("%lf %c %lf", &num1, &operator, &num2);
