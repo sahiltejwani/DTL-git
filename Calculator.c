@@ -17,24 +17,19 @@ int main() {
         printf("Enter an expression (e.g., 5 + 3): ");
         scanf("%lf %c %lf", &num1, &operator, &num2);
 
-        switch (operator) {
-            case '+':
-                printf("%.2lf + %.2lf = %.2lf\n", num1, num2, num1 + num2);
-                break;
-            case '-':
-                printf("%.2lf - %.2lf = %.2lf\n", num1, num2, num1 - num2);
-                break;
-            case '*':
-                printf("%.2lf * %.2lf = %.2lf\n", num1, num2, num1 * num2);
-                break;
-            case '/':
-                if (num2 != 0)
-                    printf("%.2lf / %.2lf = %.2lf\n", num1, num2, num1 / num2);
-                else
-                    printf("Error: Division by zero!\n");
-                break;
-            default:
-                printf("Invalid operator\n");
+        if (operator == '+') {
+            printf("%.2lf + %.2lf = %.2lf\n", num1, num2, num1 + num2);
+        } else if (operator == '-') {
+            printf("%.2lf - %.2lf = %.2lf\n", num1, num2, num1 - num2);
+        } else if (operator == '*') {
+            printf("%.2lf * %.2lf = %.2lf\n", num1, num2, num1 * num2);
+        } else if (operator == '/') {
+            if (num2 != 0)
+                printf("%.2lf / %.2lf = %.2lf\n", num1, num2, num1 / num2);
+            else
+                printf("Error: Division by zero!\n");
+        } else {
+            printf("Invalid operator\n");
         }
     } else if (choice == 2) {
         unsigned int hex1, hex2, result;
@@ -47,27 +42,22 @@ int main() {
         printf("Enter second hex number (e.g., 1F): ");
         scanf("%x", &hex2);
 
-        switch (operator) {
-            case '+':
-                result = hex1 + hex2;
-                break;
-            case '-':
-                result = hex1 - hex2;
-                break;
-            case '*':
-                result = hex1 * hex2;
-                break;
-            case '/':
-                if (hex2 != 0)
-                    result = hex1 / hex2;
-                else {
-                    printf("Error: Division by zero!\n");
-                    return 1;
-                }
-                break;
-            default:
-                printf("Invalid operator\n");
+        if (operator == '+') {
+            result = hex1 + hex2;
+        } else if (operator == '-') {
+            result = hex1 - hex2;
+        } else if (operator == '*') {
+            result = hex1 * hex2;
+        } else if (operator == '/') {
+            if (hex2 != 0)
+                result = hex1 / hex2;
+            else {
+                printf("Error: Division by zero!\n");
                 return 1;
+            }
+        } else {
+            printf("Invalid operator\n");
+            return 1;
         }
 
         printf("Result in Hex: %X\n", result);
